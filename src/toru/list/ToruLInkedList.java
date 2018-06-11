@@ -52,7 +52,8 @@ public class ToruLInkedList {
         head = newNode;
     }
 
-    public void insertNodeAtEnd(Node prev, Object key){
+    /* Adding node after given node */
+    public void insertNode(Node prev, Object key){
         if(prev == null) return;
 
         Node newNode = new Node(key);
@@ -60,6 +61,7 @@ public class ToruLInkedList {
         prev.nextNode = newNode;
     }
 
+    /* Adding node at the end of given list */
     public void append(Object newData){
         Node newNode = new Node(newData);
         if(head == null){
