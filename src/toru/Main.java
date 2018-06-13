@@ -1,8 +1,6 @@
 package toru;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /*
 * https://javarevisited.blogspot.com/2015/01/top-20-string-coding-interview-question-programming-interview.html
@@ -56,6 +54,11 @@ public class Main {
         // No. 18
         main.removeParticularCharacter("I get up at six in the morning", 'a');
         main.removeParticularCharacter("abracadabra", 'a');
+
+        int[] t = {1,2,3,4,5};
+        main.testReverseIntArr(t);
+
+        main.scanner();
     }
 
     /* Problem 1, finding duplicated character */
@@ -273,5 +276,71 @@ public class Main {
         }
 
         System.out.println("result:: " + sb.toString());
+    }
+
+    private void testReverseIntArr(int[] givenArr){
+        int[] arr = new int[givenArr.length];
+        for(int i = 0 ; i < givenArr.length ; i++){
+            arr[givenArr.length -1-i] = givenArr[i];
+        }
+
+        for(int i : arr){
+            System.out.print(i);
+        }
+    }
+
+    private void scanner(){
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+
+        scanner.nextLine();
+
+        for(int i = 0 ; i < a; i++){
+            String str = scanner.nextLine();
+            char[] givenArr = str.toCharArray();
+            for(int j = 0 ; j < givenArr.length; j++){
+                if(j % 2 == 0){
+                    System.out.print(givenArr[j]);
+                }
+            }
+            System.out.print(" ");
+
+            for(int j = 0 ; j < givenArr.length; j++){
+                if(j % 2 != 0){
+                    System.out.print(givenArr[j]);
+                }
+            }
+            System.out.println("");
+        }
+        scanner.close();
+    }
+
+    private String getDate(String day, String month, String year){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Integer.parseInt(year), Integer.parseInt(month)-1, Integer.parseInt(day));
+
+        switch (calendar.get(Calendar.DAY_OF_WEEK)){
+            case Calendar.SUNDAY:
+                return "SUNDAY";
+
+            case Calendar.MONDAY:
+                return "SUNDAY";
+
+            case Calendar.TUESDAY:
+                return "TUESDAY";
+
+            case Calendar.WEDNESDAY:
+                return "WEDNESDAY";
+
+            case Calendar.THURSDAY:
+                return "THURSDAY";
+
+            case Calendar.FRIDAY:
+                return "FRIDAY";
+
+            case Calendar.SATURDAY:
+                return "SATURDAY";
+        }
+        return "";
     }
 }

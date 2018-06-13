@@ -46,6 +46,7 @@ public class ToruLInkedList {
         previous.nextNode = temp.nextNode;
     }
 
+    /* Adding node prior to head */
     public void insertNode(Object key){
         Node newNode = new Node(key);
         newNode.nextNode = head;
