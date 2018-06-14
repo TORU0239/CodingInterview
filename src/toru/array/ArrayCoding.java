@@ -13,6 +13,13 @@ public class ArrayCoding {
 
         int[] given2 = {3,1,4,19, 20,4,0, -1};
         coding.findLargestAndSmallest(given2);
+
+        int[] given3 = {2,4,3,5,7,8,9};
+        coding.findAllPairs(given3, 7);
+        coding.findAllPairs(given3, 10);
+
+        String[] arrS = {"a","b","c","d","e","f","g","h","i","j"};
+        coding.reverseStrArr(arrS);
     }
 
     /* Problem 1 How do you find the missing number in a given integer array of 1 to 100? */
@@ -73,6 +80,39 @@ public class ArrayCoding {
         }
 
         System.out.printf("The largest :: %d, the smallest :: %d", tempLarge, tempSmall);
+    }
 
+    /* Problem 4 How do you find all pairs of an integer array whose sum is equal to given number? */
+    private void findAllPairs(int[] arr, int given){
+        for (int first : arr) {
+            for (int second : arr) {
+                if (first + second == given) {
+                    System.out.printf("(%d, %d) %n", first, second);
+                }
+            }
+        }
+    }
+
+    /* Problem 9. How do you reverse an array in place in Java? */
+    private void reverseStrArr(String[] arr){
+        String[] tempArr = new String[arr.length];
+        for(int i = 0 ; i < arr.length ; i++){
+            tempArr[arr.length-1-i] = arr[i];
+        }
+
+        for(String s : tempArr){
+            System.out.print(s);
+        }
+    }
+
+    /* Different Problem. that is solution for reversing based on a pivot.*/
+    private void reverseArr(String[] arr){
+        String temp;
+        for(int index = 0 ; index < arr.length ; index++){
+            temp = arr[index];
+            arr[index] = arr[arr.length-1-index];
+            arr[arr.length-1-index] = temp;
+            System.out.print(arr[index]);
+        }
     }
 }
